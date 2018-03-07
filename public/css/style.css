@@ -3,26 +3,55 @@
 	padding: 0;
 }
 
-body {
+/*body {
 	background-color: #f0db4f;
-}
+}*/
 
 h1, p {
 	font-family: sans-serif;
 	text-align: center;
 	color: #323330;
-	font-size:  100px;
+	font-size:  12px;
+    font-weight: bold;
 }
 
-
-p {
-	font-size: 30px;
+header{
+    text-align: center;
 }
 
-#output, #container {
+#container {
     display: flex;
     justify-content: center;
-    margin-top: 100px;
+    margin-top: 10px;
+}
+
+.bot_response{
+    text-align: left;
+    padding: 5px;
+    float: left;
+    color: green;
+    width: 60%;
+    background-color: #f1f2da;
+    border-radius: 25px;
+    margin-bottom: 0px;
+}
+
+.answer{
+    text-align: center;
+    padding: 5px;
+    float: right;
+    color: blue;
+    width: 20%;
+    background-color: #f1f2da;
+    border-radius: 25px;
+    margin-bottom: 0px;
+}
+
+#all{
+    width: 40%;
+    margin: 0 auto;
+    border-right: 1px solid grey;
+    border-left: 1px solid grey;
 }
 
 
@@ -31,9 +60,10 @@ input {
     border: none;
     font-family: sans-serif;
     color: #000;
-    padding: 15px 32px;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 30px;
+    font-size: 14px;
+    float: center;
 }

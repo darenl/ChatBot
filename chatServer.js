@@ -30,12 +30,11 @@ io.on('connect', function(socket) {
   var questionNum = 0; // keep count of question, used for IF condition.
   socket.on('loaded', function(){// we wait until the client has loaded and contacted us that it is ready to go.
 
-  socket.emit('answer',"Hey, Hello I am Jimothy, a simple chat bot example."); //We start with the introduction;
-  setTimeout(timedQuestion, 2500, socket,"What is your Name?"); // Wait a moment and respond with a question.
+  socket.emit('answer',"Hey, Hello I am John! I am going to ask you a couple of questions."); //We start with the introduction;
+  setTimeout(timedQuestion, 2500, socket,"What is the name of the person/patient?"); // Wait a moment and respond with a question.
 
 });
   socket.on('message', (data)=>{ // If we get a new message from the client we process it;
-        console.log(data);
         questionNum= bot(data,socket,questionNum);	// run the bot function with the new message
       });
   socket.on('disconnect', function() { // This function  gets called when the browser window gets closed
@@ -43,61 +42,117 @@ io.on('connect', function(socket) {
   });
 });
 //--------------------------CHAT BOT FUNCTION-------------------------------//
+var name;
 function bot(data,socket,questionNum) {
   var input = data; // This is generally really terrible from a security point of view ToDo avoid code injection
   var answer;
   var question;
   var waitTime;
+  var finished = false;
 
 /// These are the main statments that make up the conversation.
   if (questionNum == 0) {
-  answer= 'Hello ' + input + ' :-)';// output response
-  waitTime =2000;
-  question = 'What\'s your favorite genre of music?';			    	// load next question
+    name = input;
+    question = 'Does ' + name + ' repeat himself or herself or ask the same question over and over again (No, Sometimes, Often)?';			    	// load next question
   }
   else if (questionNum == 1) {
-  answer= 'Cool, I like ' + input + ' music too!';// output response
-  waitTime =2000;
-  question = 'Whose your favorite band or singer?';			    	// load next question
+    if(input.toLowerCase() === "no"){
+      question = "No need to worry";
+      finished = true;
+    }
+    else if(input.toLowerCase() === "sometimes" || input.toLowerCase() === "often"){
+      question = "Does " + name + " seem more forgetful, that is, have trouble with short-term memory (No, Sometimes, Often)?";
+    }
+    else{
+      answer = "I did not understand that answer. Please type either No, Sometimes, or Often.";
+      question = 'Does ' + name + ' repeat himself or herself or ask the same question over and over again (No, Sometimes, Often)?';            // load next question
+      waitTime = 2000;
+      questionNum--;
+    }
   }
   else if (questionNum == 2) {
-  answer= 'That\'s cool!';
-  waitTime =2000;
-  question = 'What\'s your favorite song?';			    	// load next question
+    if(input.toLowerCase() === "no"){
+      question = "No need to worry";
+      finished = true;
+    }
+    else if(input.toLowerCase() === "sometimes"){
+      question = "Does it impact daily tasks (Yes/No)?";
+      questionNum -= .5;
+    }
+    else if(input.toLowerCase() === "often"){
+      question = "Does " + name + " need multiple reminders to do things they used to do on their own, like chores, shopping or taking medication (Yes/No)?";
+    }
+    else{
+      answer = "I did not understand that answer. Please type either No, Sometimes, or Often.";
+      question = "Does " + name + " seem more forgetful, that is, have trouble with short-term memory (No, Sometimes, Often)?";
+      waitTime = 2000;
+      questionNum--;
+    }
+  }
+  else if (questionNum == 2.5) {
+    if(input.toLowerCase() === "no"){
+      question = "No need to worry";
+      finished = true;
+    }
+    else if(input.toLowerCase() === "yes"){
+      question = "Does " + name + " need multiple reminders to do things they used to do on their own, like chores, shopping or taking medication (Yes/No)?";
+      questionNum -= .5;
+    }
+    else{
+      answer = "I did not understand that answer. Please type either Yes or No.";
+      question = "Does it impact daily tasks (Yes/No)?";
+      waitTime = 2000;
+      questionNum--;
+    } 
   }
   else if (questionNum == 3) {
-  answer= 'Oh? I haven\'t heard of that one before. I should check it out.';
-  waitTime = 2000;
-  question = 'Do you like going to their concerts?';			    	// load next question
+    if(input.toLowerCase() === "no"){
+      question = "No need to worry";
+      finished = true;
+    }
+    else if(input.toLowerCase() === "yes"){
+      question = "Does " + name + " repeatedly forget important appointments, family occasions or holidays? (Yes/No)";
+    }
+    else{
+      answer = "I did not understand that answer. Please type either Yes or No.";
+      question = "Does " + name + " need multiple reminders to do things they used to do on their own, like chores, shopping or taking medication (Yes/No)?"
+      waitTime = 2000;
+      questionNum--;
+    } 
   }
   else if (questionNum == 4) {
-    if(input.toLowerCase()==='yes'|| input===1){
-      answer = 'Cool! We should go to their next concert!';
-      waitTime =2000;
-      question = '';
+    if(input.toLowerCase() === "no"){
+      question = "No need to worry";
+      finished = true;
     }
-    else if(input.toLowerCase()==='no'|| input===0){
-        answer='Ahh yea, it can get a bit noisy at times.'
-        question='';
-        waitTime =2000;
-    }else{
-      answer=' I did not understand you. Can you please answer with simply with yes or no.'
-      question='';
+    else if(input.toLowerCase() === "yes"){
+      question = "Schedule an office visit to continue this test!";
+    }
+    else{
+      answer = "I did not understand that answer. Please type either Yes or No.";
+      question = "Does " + name + " repeatedly forget important appointments, family occasions or holidays? (Yes/No)";
+      waitTime = 2000;
       questionNum--;
-      waitTime =0;
-    }
-  // load next question
+    } 
   }
   else{
-    answer= 'That was fun! See you next time!';// output response
-    waitTime =0;
-    question = '';
+    question = "The test is complete!";
   }
 
+  if(finished){
+    questionNum = 5;
+  }
 
-/// We take the changed data and distribute it across the required objects.
-  socket.emit('answer',answer);
-  setTimeout(timedQuestion, waitTime,socket,question);
+  if(answer){
+    socket.emit('answer', answer);
+    console.log(question);
+    answer = "";
+    setTimeout(timedQuestion, waitTime, socket, question);
+  }
+  else{
+    socket.emit('question', question);
+  }
+  //setTimeout(timedQuestion, waitTime,socket,question);
   return (questionNum+1);
 }
 
