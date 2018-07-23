@@ -1,0 +1,3 @@
+Does the patient have poor memory (Yes/No)?\n
+Does the patient repeat him/herself or ask the same question over and over again (Yes/No)?\n
+Does the patient take a while to get dressed (Yes/No)?

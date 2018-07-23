@@ -1,37 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" >
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Alzheimer's ChatBot</title>
-
-  <script src="/socket.io/socket.io.js"></script>
-  <link rel="stylesheet" href="css/style.css">
-
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+	<script src="js/jsplumb.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>Decision Tree</title>
 </head>
-
-<body id="body">
-	<header>
-		<h2>Alzheimer's ChatBot</h2>
-		<h4>Max Delahanty, Daren Liu</h4>
-	</header>
-	<br>
-	<div id="all">
-	 	<div id="messages">
-	 	</div>
-
-		<div id="container">
-	    	<input type="text" id="input" value="">
-		</div>
+<body>
+<div id="container">
+	<button id="export">Export your tree</button>
+	<div class="node">
+	  <div class="nodeheader">Root</div>
+	  <textarea type="text" name="content" class="content"></textarea><br>
+	  <button class="create">Create New Branch</button>
 	</div>
-<!-- jquery for enter key press -->
-<script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
-<script  src="js/index.js"></script>
-
-
-
-
+</div>
+<script src="js/index.js"></script>
 </body>
-
 </html>

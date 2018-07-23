@@ -1,0 +1,54 @@
+[{
+	"question": "Does the person repeat himself or herself or ask the same question over and over", 
+	"actions":
+	{
+		"often": "Does the individual seem more forgetful, that is, have trouble with short-term memory?", 
+		"no": "No need to worry",
+		"sometimes": "Does the individual seem more forgetful, that is, have trouble with short-term memory?"
+	},
+	"warning": "Answer not recognized. Please answer with 'no', 'sometimes', or 'often'"
+},
+{
+	"question": "Does the individual seem more forgetful, that is, have trouble with short-term memory?", 
+	"actions":
+	{
+		"often": "Does the individual need multiple reminders to do things they used to do on their own, like chores, shopping or taking medication?", 
+		"no": "No need to worry",
+		"sometimes": "Does it impact daily tasks?"
+	},
+	"warning": "Answer not recognized. Please answer with 'no', 'sometimes' or 'often'"
+},
+{
+	"question": "Does it impact daily tasks?",
+	"actions":
+	{
+		"yes": "Does the individual need multiple reminders to do things they used to do on their own, like chores, shopping or taking medication?", 
+		"no": "No need to worry"
+	},
+	"warning": "Answer not recognized. Please answer with 'yes' or 'no'"
+},
+{
+	"question": "Does the individual need multiple reminders to do things they used to do on their own, like chores, shopping or taking medication?",
+	"actions":
+	{
+		"yes": "Does the individual repeatedly forget important appointments, family occasions or holidays?",
+		"no": "No need to worry"
+	},
+	"warning": "Answer not recognized. Please answer with 'yes' or 'no'" 
+},
+{
+	"question": "Does the individual repeatedly forget important appointments, family occasions or holidays?",
+	"actions":
+	{
+		"yes": "Schedule an office visit to continue this test!",
+		"no": "No need to worry"
+	}
+},
+{
+	"question": "No need to worry",
+	"actions": {}
+},
+{
+	"question": "Schedule an office visit to continue this test!",
+	"actions": {}
+}]

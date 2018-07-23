@@ -1,0 +1,43 @@
+[{
+	"question": "Question 1", 
+	"actions":
+	{
+		"yes": "Question 2", 
+		"no": "Question 3"
+	},
+	"warning": "Answer not recognized. Please answer with 'yes' or 'no'"
+},
+{
+	"question": "Question 2", 
+	"actions":
+	{
+		"yes": "Final Answer 1", 
+		"no": "Final Answer 2"
+	},
+	"warning": "Answer not recognized. Please answer with 'yes' or 'no'"
+},
+{
+	"question": "Question 3",
+	"actions":
+	{
+		"choice 1": "Final Answer 3",
+		"choice 2": "Final Answer 4"
+	},
+	"warning": "Answer not recognized. Please answer with 'choice 1' or 'choice 2'"
+},
+{
+	"question": "Final Answer 1",
+	"actions": {}
+},
+{
+	"question": "Final Answer 2",
+	"actions": {}
+},
+{
+	"question": "Final Answer 3",
+	"actions": {}
+},
+{
+	"question": "Final Answer 4",
+	"actions": {}
+}]

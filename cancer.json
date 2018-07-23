@@ -1,0 +1,84 @@
+[{
+	"question": "How are you feeling today? (good/not well)", 
+	"actions":
+	{
+		"good": "Which of these treatments are you currently going through: surgery, radiation therapy, chemotherapy, targeted therapy, hormone therapy?",
+		"not well": "Which of these treatments are you currently going through: surgery, radiation therapy, chemotherapy, targeted therapy, hormone therapy?"
+	},
+	"warning": "Answer not recognized. Please answer with 'good' or 'not well'"
+},
+{
+	"question": "Which of these treatments are you currently going through: surgery, radiation therapy, chemotherapy, targeted therapy, hormone therapy?", 
+	"actions":
+	{
+		"surgery": "Have you been experiencing soreness in your chest, underarm and shoulder?",
+		"radiation therapy": "Have you been experiencing breast tenderness, redness, swelling, fatigue, pain, or skin irritation?",
+		"chemotherapy": "Have you been experiencing any of these side effects: constipation, diarrhea, fatigue, fingernail or toenail weakness, hair loss, mouth and throat sores, nausea and vomiting?",
+		"targeted therapy": "Have you been experiencing any of these side effects: skin problems such as acneiform rash, dry skin, nail changes, hair depigmentation, problems with blood clotting and wound healing, or high blood pressure?",
+		"hormone therapy": "Which hormone therapy are you currently using? Tamoxifen or Aromatose Inhibitors"
+	},
+	"warning": "Answer not recognized. Please input one of the above treatment plans"
+},
+{
+	"question": "Have you been experiencing soreness in your chest, underarm and shoulder?",
+	"actions":
+	{
+		"yes": "Have you had a lumpectomy or a mastectomy?",
+		"no": "Don't hesitate to let your healthcare provider know about any pain or discomfort you have after surgery."
+	},
+	"warning": "Answer not recognized. Please answer with 'yes' or 'no'"
+},
+{
+	"question": "Have you been experiencing breast tenderness, redness, swelling, fatigue, pain, or skin irritation?",
+	"actions":
+	{
+		"yes": "Don't worry! Most often, these side effects begin within a few weeks of starting treatment and go away within a few weeks after treatment ends.",
+		"no": "Great! Good to know you are feeling well. Have a nice day and thank you for choosing this tool!"
+	},
+	"warning": "Answer not recognized. Please answer with 'yes' or 'no'"
+},
+{
+	"question": "Have you been experiencing any of these side effects: constipation, diarrhea, fatigue, fingernail or toenail weakness, hair loss, mouth and throat sores, nausea and vomiting?",
+	"actions":
+	{
+		"yes": "Don't worry! Most side effects occur during treatment and begin to go away shortly after treatment ends. Don't hesitate to let your oncologist or nurse know how the sessions make you feel",
+		"no": "Great! Good to know you are feeling well. Have a nice day and thank you for choosing this tool!"
+	},
+	"warning": "Answer not recognized. Please answer with 'yes' or 'no'"
+},
+{
+	"question": "Have you been experiencing any of these side effects: skin problems such as acneiform rash, dry skin, nail changes, hair depigmentation, problems with blood clotting and wound healing, or high blood pressure?",
+	"actions":
+	{
+		"yes": "Don't worry! Unlike chemotherapy drugs, targeted therapies kill cancer cells while causing little harm to healthy cells",
+		"no": "Great! Good to know you are feeling well. Have a nice day and thank you for choosing this tool!"
+	},
+	"warning": "Answer not recognized. Please answer with 'yes' or 'no'"
+},
+{
+	"question": "Which hormone therapy are you currently using? Tamoxifen or Aromatose Inhibitors",
+	"actions":
+	{
+		"tamoxifen": "Have you been experiencing any of the following symptoms: Hot flashes and night sweats, irregular periods or spotting, loss of sex drive, or vaginal symptoms",
+		"aromatose inhibitors": "Have you been experiencing any of the following symptoms: Hot flashes and night sweats, irregular periods or spotting, loss of sex drive, or vaginal symptoms"
+	},
+	"warning": "Answer not recognized. Please input either 'tamoxifen' or 'aromatose inhibitors'"
+},
+{
+	"question": "Have you had a lumpectomy or a mastectomy?",
+	"actions":
+	{
+		"yes": "Don't worry. When you have a lumpectomy or a mastectomy, it's likely you will have temporary soreness in your chest, underarm and shoulder. If the pain continues, don't hesitate to let your healthcare provider know.",
+		"no": "Don't hesitate to let your healthcare provider know about any pain or discomfort you have after surgery."
+	},
+	"warning": "Answer not recognized. Please input either 'yes' or 'no'"
+},
+{
+	"question": "Have you been experiencing any of the following symptoms: Hot flashes and night sweats, irregular periods or spotting, loss of sex drive, or vaginal symptoms",
+	"actions":
+	{
+		"yes": "Don't hesitate to let your healthcare provider know about any side effects you have. It's important to be honest with your provider about side effects. Your provider may also be able to switch you to a different hormone therapy that may have fewer side effects for you.",
+		"no": "Great! Good to know you are feeling well. Have a nice day and thank you for choosing this tool."
+	},
+	"warning": "Answer not recognized. Please input either 'yes' or 'no'"
+}]

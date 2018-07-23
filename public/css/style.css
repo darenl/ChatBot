@@ -23,6 +23,8 @@ header{
     display: flex;
     justify-content: center;
     margin-top: 10px;
+    overflow: auto;
+    margin-bottom: 60px;
 }
 
 .bot_response{
@@ -38,10 +40,13 @@ header{
 
 .answer{
     text-align: center;
-    padding: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
     float: right;
     color: blue;
-    width: 20%;
+    width: auto;
     background-color: #f1f2da;
     border-radius: 25px;
     margin-bottom: 0px;
@@ -65,5 +70,84 @@ input {
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
+    width: 100%;
     float: center;
+}
+
+#btn{
+    background-color: #53cafc;
+    width: 30%;
+    font-size: 14px;
+    border-radius: 4px;
+    transition-duration: 0.2s;
+}
+
+#btn:hover {
+    background-color: white; /* Green */
+}
+
+.node{
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+    cursor: move;
+    width: 230px;
+    display: inline-block;
+    border-radius: 6px;
+    margin: 20px;
+}
+
+.node:focus {
+    outline: 3px solid blue;
+}
+
+.nodeheader{
+    padding: 5px;
+    font-size: 14px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
+    margin-bottom: 5px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border
+}
+
+.content{
+    width: 90%;
+    height: 90px;
+    font-size: 10px;
+    resize: none;
+}
+
+.choice{
+    width: 60%;
+    font-size: 10px;
+}
+
+.create{
+    overflow: auto;
+    background-color: #f49842;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 10px;
+    margin-bottom: 3px;
+}
+
+.delete{
+    overflow: auto;
+    background-color: #cc120c;
+    border-radius: 4px;
+    padding: 5px;
+    color: white;
+    font-size: 10px;
+    margin-bottom: 3px;
+}
+
+#node-container{
+    float: none;
+    display: inline;
 }
